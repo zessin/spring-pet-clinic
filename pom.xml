@@ -48,5 +48,9 @@
             </plugin>
         </plugins>
     </build>
+    
+    <scm>
+    	<developerConnection>scm:git:https://github.com/zessin/spring-pet-clinic.git</developerConnection>
+   	</scm>
 
 </project>
