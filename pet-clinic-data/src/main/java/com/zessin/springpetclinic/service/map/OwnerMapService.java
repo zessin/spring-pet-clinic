@@ -3,9 +3,9 @@ package com.zessin.springpetclinic.service.map;
 import java.util.Set;
 
 import com.zessin.springpetclinic.model.Owner;
-import com.zessin.springpetclinic.service.CrudService;
+import com.zessin.springpetclinic.service.OwnerService;
 
-public class OwnerMapService extends AbstractMapService<Owner, Long> implements CrudService<Owner, Long> {
+public class OwnerMapService extends AbstractMapService<Owner, Long> implements OwnerService {
 
 	@Override
 	public Set<Owner> findAll() {
@@ -30,6 +30,12 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 	@Override
 	public void deleteById(Long id) {
 		super.deleteById(id);
+	}
+
+	@Override
+	public Owner findByLastName(String lastName) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

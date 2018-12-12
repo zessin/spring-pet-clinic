@@ -3,9 +3,9 @@ package com.zessin.springpetclinic.service.map;
 import java.util.Set;
 
 import com.zessin.springpetclinic.model.Vet;
-import com.zessin.springpetclinic.service.CrudService;
+import com.zessin.springpetclinic.service.VetService;
 
-public class VetMapService extends AbstractMapService<Vet, Long> implements CrudService<Vet, Long> {
+public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 	@Override
 	public Set<Vet> findAll() {
