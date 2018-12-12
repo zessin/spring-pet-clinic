@@ -7,8 +7,6 @@ import com.zessin.springpetclinic.model.Owner;
 import com.zessin.springpetclinic.model.Vet;
 import com.zessin.springpetclinic.service.OwnerService;
 import com.zessin.springpetclinic.service.VetService;
-import com.zessin.springpetclinic.service.map.OwnerMapService;
-import com.zessin.springpetclinic.service.map.VetMapService;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -16,9 +14,9 @@ public class DataInitializer implements CommandLineRunner {
 	private final OwnerService ownerService;
 	private final VetService vetService;
 
-	public DataInitializer() {
-		this.ownerService = new OwnerMapService();
-		this.vetService = new VetMapService();
+	public DataInitializer(OwnerService ownerService, VetService vetService) {
+		this.ownerService = ownerService;
+		this.vetService = vetService;
 	}
 
 	@Override
