@@ -5,10 +5,17 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.zessin.springpetclinic.model.Vet;
+import com.zessin.springpetclinic.service.SpecialtyService;
 import com.zessin.springpetclinic.service.VetService;
 
 @Service
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
+
+	private final SpecialtyService specialtyService;
+
+	public VetMapService(SpecialtyService specialtyService) {
+		this.specialtyService = specialtyService;
+	}
 
 	@Override
 	public Set<Vet> findAll() {
@@ -22,6 +29,14 @@ public class VetMapService extends AbstractMapService<Vet, Long> implements VetS
 
 	@Override
 	public Vet save(Vet object) {
+		if (object.getSpecialties() != null) {
+			object.getSpecialties().forEach(specialty -> {
+				if (specialty.getId() == null) {
+					specialty = specialtyService.save(specialty);
+				}
+			});
+		}
+
 		return super.save(object);
 	}
 

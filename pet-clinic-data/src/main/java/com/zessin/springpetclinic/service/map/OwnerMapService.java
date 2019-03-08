@@ -5,7 +5,6 @@ import java.util.Set;
 import org.springframework.stereotype.Service;
 
 import com.zessin.springpetclinic.model.Owner;
-import com.zessin.springpetclinic.model.Pet;
 import com.zessin.springpetclinic.service.OwnerService;
 import com.zessin.springpetclinic.service.PetService;
 import com.zessin.springpetclinic.service.PetTypeService;
@@ -45,8 +44,7 @@ public class OwnerMapService extends AbstractMapService<Owner, Long> implements 
 					}
 
 					if (pet.getId() == null) {
-						Pet savedPet = petService.save(pet);
-						pet.setId(savedPet.getId());
+						pet = petService.save(pet);
 					}
 				});
 			}
