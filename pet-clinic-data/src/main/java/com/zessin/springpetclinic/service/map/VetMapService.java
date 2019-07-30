@@ -2,6 +2,7 @@ package com.zessin.springpetclinic.service.map;
 
 import java.util.Set;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import com.zessin.springpetclinic.model.Vet;
@@ -9,6 +10,7 @@ import com.zessin.springpetclinic.service.SpecialtyService;
 import com.zessin.springpetclinic.service.VetService;
 
 @Service
+@Profile({"default", "map"})
 public class VetMapService extends AbstractMapService<Vet, Long> implements VetService {
 
 	private final SpecialtyService specialtyService;
