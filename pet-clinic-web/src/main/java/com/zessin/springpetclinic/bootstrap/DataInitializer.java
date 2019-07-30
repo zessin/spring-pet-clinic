@@ -10,10 +10,12 @@ import com.zessin.springpetclinic.model.Pet;
 import com.zessin.springpetclinic.model.PetType;
 import com.zessin.springpetclinic.model.Specialty;
 import com.zessin.springpetclinic.model.Vet;
+import com.zessin.springpetclinic.model.Visit;
 import com.zessin.springpetclinic.service.OwnerService;
 import com.zessin.springpetclinic.service.PetTypeService;
 import com.zessin.springpetclinic.service.SpecialtyService;
 import com.zessin.springpetclinic.service.VetService;
+import com.zessin.springpetclinic.service.VisitService;
 
 @Component
 public class DataInitializer implements CommandLineRunner {
@@ -22,12 +24,15 @@ public class DataInitializer implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialtyService specialtyService;
+	private final VisitService visitService;
 
-	public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialtyService specialtyService) {
+	public DataInitializer(OwnerService ownerService, VetService vetService, PetTypeService petTypeService,
+						   SpecialtyService specialtyService, VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService = petTypeService;
 		this.specialtyService = specialtyService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -104,6 +109,12 @@ public class DataInitializer implements CommandLineRunner {
 		vet2.setLastName("Buffay");
 		vet2.getSpecialties().add(specialty3);
 		vetService.save(vet2);
+
+		Visit visit1 = new Visit();
+		visit1.setDate(LocalDate.now());
+		visit1.setDescription("Marley's visit");
+		visit1.setPet(pet1);
+		visitService.save(visit1);
 
 		System.out.println("Finished initializing data.");
 	}
