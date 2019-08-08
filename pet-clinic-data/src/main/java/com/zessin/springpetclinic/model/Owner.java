@@ -1,5 +1,6 @@
 package com.zessin.springpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -26,7 +27,10 @@ public class Owner extends Person {
 		this.address = address;
 		this.city = city;
 		this.telephone = telephone;
-		this.pets = pets;
+
+		if (pets != null && !pets.isEmpty()) {
+			this.pets = pets;
+		}
 	}
 
 	@Column(name = "address")
@@ -39,6 +43,6 @@ public class Owner extends Person {
 	private String telephone;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-	private Set<Pet> pets;
+	private Set<Pet> pets = new HashSet<>();
 
 }

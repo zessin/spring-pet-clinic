@@ -1,5 +1,6 @@
 package com.zessin.springpetclinic.model;
 
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.Entity;
@@ -31,6 +32,6 @@ public class Vet extends Person {
 	@JoinTable(name = "vet_specialty",
 			   joinColumns = @JoinColumn(name = "vet_id"),
 			   inverseJoinColumns = @JoinColumn(name = "specialty_id"))
-	private Set<Specialty> specialties;
+	private Set<Specialty> specialties = new HashSet<>();
 
 }

@@ -1,6 +1,7 @@
 package com.zessin.springpetclinic.model;
 
 import java.time.LocalDate;
+import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,11 +20,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
-@Builder
 @Entity
 @Table(name = "pet")
 public class Pet extends BaseEntity {
+
+	@Builder
+	public Pet(Long id, String name, PetType petType, Owner owner, LocalDate birthDate, Set<Visit> visits) {
+	    super(id);
+	    this.name = name;
+	    this.petType = petType;
+	    this.owner = owner;
+	    this.birthDate = birthDate;
+
+	    if (visits != null && !visits.isEmpty()) {
+	        this.visits = visits;
+	    }
+	}
 
 	@Column(name = "name")
 	private String name;
@@ -41,6 +52,6 @@ public class Pet extends BaseEntity {
 	private LocalDate birthDate;
 
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
-	private Set<Visit> visits;
+	private Set<Visit> visits = new HashSet<>();
 
 }
