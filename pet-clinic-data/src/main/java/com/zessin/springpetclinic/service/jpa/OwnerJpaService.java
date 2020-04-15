@@ -1,6 +1,7 @@
 package com.zessin.springpetclinic.service.jpa;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.context.annotation.Profile;
@@ -52,6 +53,11 @@ public class OwnerJpaService implements OwnerService {
 	@Override
 	public Owner findByLastName(String lastName) {
 		return ownerRepository.findByLastName(lastName);
+	}
+
+	@Override
+	public List<Owner> findAllByLastNameIgnoringCaseContaining(String lastName) {
+		return ownerRepository.findAllByLastNameIgnoringCaseContaining(lastName);
 	}
 
 }

@@ -69,7 +69,7 @@ public class DataInitializer implements CommandLineRunner {
 		owner1.setFirstName("Chandler");
 		owner1.setLastName("Bing");
 		owner1.setAddress("123 Walnut St.");
-		owner1.setCity("Philadelphia");
+		owner1.setCity("New York");
 		owner1.setTelephone("12344321");
 
 		Pet pet1 = new Pet();
@@ -85,7 +85,7 @@ public class DataInitializer implements CommandLineRunner {
 		owner2.setFirstName("Monica");
 		owner2.setLastName("Geller");
 		owner2.setAddress("456 Walnut St.");
-		owner2.setCity("Philadelphia");
+		owner2.setCity("New York");
 		owner2.setTelephone("43211234");
 
 		Pet pet2 = new Pet();
