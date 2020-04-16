@@ -21,4 +21,8 @@ public class BaseEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
+	public boolean isNew() {
+		return id == null;
+	}
+
 }
