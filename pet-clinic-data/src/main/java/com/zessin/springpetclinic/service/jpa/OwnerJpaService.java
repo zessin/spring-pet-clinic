@@ -15,49 +15,49 @@ import com.zessin.springpetclinic.service.OwnerService;
 @Profile("jpa")
 public class OwnerJpaService implements OwnerService {
 
-	private final OwnerRepository ownerRepository;
+    private final OwnerRepository ownerRepository;
 
-	public OwnerJpaService(OwnerRepository ownerRepository) {
-		this.ownerRepository = ownerRepository;
-	}
+    public OwnerJpaService(OwnerRepository ownerRepository) {
+        this.ownerRepository = ownerRepository;
+    }
 
-	@Override
-	public Set<Owner> findAll() {
-		Set<Owner> owners = new HashSet<>();
+    @Override
+    public Set<Owner> findAll() {
+        Set<Owner> owners = new HashSet<>();
 
-		ownerRepository.findAll().forEach(owners::add);
+        ownerRepository.findAll().forEach(owners::add);
 
-		return owners;
-	}
+        return owners;
+    }
 
-	@Override
-	public Owner findById(Long id) {
-		return ownerRepository.findById(id).orElse(null);
-	}
+    @Override
+    public Owner findById(Long id) {
+        return ownerRepository.findById(id).orElse(null);
+    }
 
-	@Override
-	public Owner save(Owner object) {
-		return ownerRepository.save(object);
-	}
+    @Override
+    public Owner save(Owner object) {
+        return ownerRepository.save(object);
+    }
 
-	@Override
-	public void delete(Owner object) {
-		ownerRepository.delete(object);
-	}
+    @Override
+    public void delete(Owner object) {
+        ownerRepository.delete(object);
+    }
 
-	@Override
-	public void deleteById(Long id) {
-		ownerRepository.deleteById(id);
-	}
+    @Override
+    public void deleteById(Long id) {
+        ownerRepository.deleteById(id);
+    }
 
-	@Override
-	public Owner findByLastName(String lastName) {
-		return ownerRepository.findByLastName(lastName);
-	}
+    @Override
+    public Owner findByLastName(String lastName) {
+        return ownerRepository.findByLastName(lastName);
+    }
 
-	@Override
-	public List<Owner> findAllByLastNameIgnoringCaseContaining(String lastName) {
-		return ownerRepository.findAllByLastNameIgnoringCaseContaining(lastName);
-	}
+    @Override
+    public List<Owner> findAllByLastNameIgnoringCaseContaining(String lastName) {
+        return ownerRepository.findAllByLastNameIgnoringCaseContaining(lastName);
+    }
 
 }

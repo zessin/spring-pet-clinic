@@ -80,7 +80,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/zessin/spring-pet-clinic.git</developerConnection>
-         <tag>HEAD</tag>
-  </scm>
+        <tag>HEAD</tag>
+    </scm>
 
 </project>
