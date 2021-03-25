@@ -8,7 +8,7 @@ import java.util.Set;
 
 import com.zessin.springpetclinic.model.BaseEntity;
 
-public abstract class AbstractMapService<T extends BaseEntity, ID extends Long> {
+public abstract class AbstractMapService<T extends BaseEntity, ID> {
 
 	protected Map<Long, T> map = new HashMap<>();
 
