@@ -3,7 +3,7 @@ package com.zessin.springpetclinic.controller;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -74,7 +74,7 @@ public class PetControllerTest {
 
 		verify(ownerService).findById(eq(1L));
 		verify(petTypeService).findAll();
-		verifyZeroInteractions(petService);
+		verifyNoInteractions(petService);
 	}
 
 	@Test

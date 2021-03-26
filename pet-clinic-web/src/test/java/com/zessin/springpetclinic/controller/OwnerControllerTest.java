@@ -7,7 +7,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.verifyZeroInteractions;
+import static org.mockito.Mockito.verifyNoInteractions;
 import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -60,7 +60,7 @@ public class OwnerControllerTest {
 		   	   .andExpect(view().name("owners/findOwners"))
 		   	   .andExpect(model().attributeExists("owner"));
 
-		verifyZeroInteractions(ownerService);
+		verifyNoInteractions(ownerService);
 	}
 
 	@Test
@@ -105,7 +105,7 @@ public class OwnerControllerTest {
 			   .andExpect(view().name("owners/createOrUpdateOwnerForm"))
 			   .andExpect(model().attributeExists("owner"));
 
-		verifyZeroInteractions(ownerService);
+		verifyNoInteractions(ownerService);
 	}
 
 	@Test
